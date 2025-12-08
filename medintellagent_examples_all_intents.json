@@ -1,0 +1,762 @@
+[
+  {
+    "question": "What conditions have I been diagnosed with?",
+    "sql": "SELECT DISTINCT ON (c.patient_id, COALESCE(c.code, c.display))\n  COALESCE(c.display, c.code) AS condition_name,\n  c.onset_datetime           AS first_noted_at,\n  c.abatement_datetime       AS resolved_at,\n  CASE WHEN c.abatement_datetime IS NULL THEN 'active' ELSE 'resolved' END AS status\nFROM conditions c\nWHERE c.patient_id = :patient_id\nORDER BY\n  c.patient_id,\n  COALESCE(c.code, c.display),\n  COALESCE(c.abatement_datetime, c.onset_datetime) DESC NULLS LAST;",
+    "intent": "diagnoses_summary",
+    "tables": [
+      "conditions"
+    ]
+  },
+  {
+    "question": "List all the medical problems on my record.",
+    "sql": "SELECT DISTINCT ON (c.patient_id, COALESCE(c.code, c.display))\n  COALESCE(c.display, c.code) AS condition_name,\n  c.onset_datetime           AS first_noted_at,\n  c.abatement_datetime       AS resolved_at,\n  CASE WHEN c.abatement_datetime IS NULL THEN 'active' ELSE 'resolved' END AS status\nFROM conditions c\nWHERE c.patient_id = :patient_id\nORDER BY\n  c.patient_id,\n  COALESCE(c.code, c.display),\n  COALESCE(c.abatement_datetime, c.onset_datetime) DESC NULLS LAST;",
+    "intent": "diagnoses_summary",
+    "tables": [
+      "conditions"
+    ]
+  },
+  {
+    "question": "Do I have any active health issues right now?",
+    "sql": "SELECT DISTINCT ON (c.patient_id, COALESCE(c.code, c.display))\n  COALESCE(c.display, c.code) AS condition_name,\n  c.onset_datetime           AS first_noted_at,\n  c.abatement_datetime       AS resolved_at,\n  CASE WHEN c.abatement_datetime IS NULL THEN 'active' ELSE 'resolved' END AS status\nFROM conditions c\nWHERE c.patient_id = :patient_id\nORDER BY\n  c.patient_id,\n  COALESCE(c.code, c.display),\n  COALESCE(c.abatement_datetime, c.onset_datetime) DESC NULLS LAST;",
+    "intent": "diagnoses_summary",
+    "tables": [
+      "conditions"
+    ]
+  },
+  {
+    "question": "What diseases or diagnoses are part of my chart?",
+    "sql": "SELECT DISTINCT ON (c.patient_id, COALESCE(c.code, c.display))\n  COALESCE(c.display, c.code) AS condition_name,\n  c.onset_datetime           AS first_noted_at,\n  c.abatement_datetime       AS resolved_at,\n  CASE WHEN c.abatement_datetime IS NULL THEN 'active' ELSE 'resolved' END AS status\nFROM conditions c\nWHERE c.patient_id = :patient_id\nORDER BY\n  c.patient_id,\n  COALESCE(c.code, c.display),\n  COALESCE(c.abatement_datetime, c.onset_datetime) DESC NULLS LAST;",
+    "intent": "diagnoses_summary",
+    "tables": [
+      "conditions"
+    ]
+  },
+  {
+    "question": "Can you show me my current and past diagnoses?",
+    "sql": "SELECT DISTINCT ON (c.patient_id, COALESCE(c.code, c.display))\n  COALESCE(c.display, c.code) AS condition_name,\n  c.onset_datetime           AS first_noted_at,\n  c.abatement_datetime       AS resolved_at,\n  CASE WHEN c.abatement_datetime IS NULL THEN 'active' ELSE 'resolved' END AS status\nFROM conditions c\nWHERE c.patient_id = :patient_id\nORDER BY\n  c.patient_id,\n  COALESCE(c.code, c.display),\n  COALESCE(c.abatement_datetime, c.onset_datetime) DESC NULLS LAST;",
+    "intent": "diagnoses_summary",
+    "tables": [
+      "conditions"
+    ]
+  },
+  {
+    "question": "What medical conditions has my doctor recorded for me?",
+    "sql": "SELECT DISTINCT ON (c.patient_id, COALESCE(c.code, c.display))\n  COALESCE(c.display, c.code) AS condition_name,\n  c.onset_datetime           AS first_noted_at,\n  c.abatement_datetime       AS resolved_at,\n  CASE WHEN c.abatement_datetime IS NULL THEN 'active' ELSE 'resolved' END AS status\nFROM conditions c\nWHERE c.patient_id = :patient_id\nORDER BY\n  c.patient_id,\n  COALESCE(c.code, c.display),\n  COALESCE(c.abatement_datetime, c.onset_datetime) DESC NULLS LAST;",
+    "intent": "diagnoses_summary",
+    "tables": [
+      "conditions"
+    ]
+  },
+  {
+    "question": "Do I still have any unresolved or chronic conditions?",
+    "sql": "SELECT DISTINCT ON (c.patient_id, COALESCE(c.code, c.display))\n  COALESCE(c.display, c.code) AS condition_name,\n  c.onset_datetime           AS first_noted_at,\n  c.abatement_datetime       AS resolved_at,\n  CASE WHEN c.abatement_datetime IS NULL THEN 'active' ELSE 'resolved' END AS status\nFROM conditions c\nWHERE c.patient_id = :patient_id\nORDER BY\n  c.patient_id,\n  COALESCE(c.code, c.display),\n  COALESCE(c.abatement_datetime, c.onset_datetime) DESC NULLS LAST;",
+    "intent": "diagnoses_summary",
+    "tables": [
+      "conditions"
+    ]
+  },
+  {
+    "question": "What were the last diagnoses added to my record?",
+    "sql": "SELECT DISTINCT ON (c.patient_id, COALESCE(c.code, c.display))\n  COALESCE(c.display, c.code) AS condition_name,\n  c.onset_datetime           AS first_noted_at,\n  c.abatement_datetime       AS resolved_at,\n  CASE WHEN c.abatement_datetime IS NULL THEN 'active' ELSE 'resolved' END AS status\nFROM conditions c\nWHERE c.patient_id = :patient_id\nORDER BY\n  c.patient_id,\n  COALESCE(c.code, c.display),\n  COALESCE(c.abatement_datetime, c.onset_datetime) DESC NULLS LAST;",
+    "intent": "diagnoses_summary",
+    "tables": [
+      "conditions"
+    ]
+  },
+  {
+    "question": "Have any of my conditions been marked as resolved?",
+    "sql": "SELECT DISTINCT ON (c.patient_id, COALESCE(c.code, c.display))\n  COALESCE(c.display, c.code) AS condition_name,\n  c.onset_datetime           AS first_noted_at,\n  c.abatement_datetime       AS resolved_at,\n  CASE WHEN c.abatement_datetime IS NULL THEN 'active' ELSE 'resolved' END AS status\nFROM conditions c\nWHERE c.patient_id = :patient_id\nORDER BY\n  c.patient_id,\n  COALESCE(c.code, c.display),\n  COALESCE(c.abatement_datetime, c.onset_datetime) DESC NULLS LAST;",
+    "intent": "diagnoses_summary",
+    "tables": [
+      "conditions"
+    ]
+  },
+  {
+    "question": "Summarize the conditions I’ve been treated for so far.",
+    "sql": "SELECT DISTINCT ON (c.patient_id, COALESCE(c.code, c.display))\n  COALESCE(c.display, c.code) AS condition_name,\n  c.onset_datetime           AS first_noted_at,\n  c.abatement_datetime       AS resolved_at,\n  CASE WHEN c.abatement_datetime IS NULL THEN 'active' ELSE 'resolved' END AS status\nFROM conditions c\nWHERE c.patient_id = :patient_id\nORDER BY\n  c.patient_id,\n  COALESCE(c.code, c.display),\n  COALESCE(c.abatement_datetime, c.onset_datetime) DESC NULLS LAST;",
+    "intent": "diagnoses_summary",
+    "tables": [
+      "conditions"
+    ]
+  },
+  {
+    "question": "What were my most recent lab results?",
+    "sql": "SELECT *\nFROM (\n  SELECT DISTINCT ON (o.patient_id, COALESCE(o.loinc_code, o.display))\n    o.patient_id,\n    COALESCE(o.display, o.loinc_code) AS test_name,\n    o.value_num AS value,\n    o.value_unit AS unit,\n    o.effective_datetime\n  FROM observations o\n  WHERE o.patient_id = :patient_id\n  ORDER BY o.patient_id,\n           COALESCE(o.loinc_code, o.display),\n           o.effective_datetime DESC NULLS LAST\n) t\nORDER BY t.effective_datetime DESC NULLS LAST, t.test_name;",
+    "intent": "recent_lab_results",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "Show my latest bloodwork.",
+    "sql": "SELECT *\nFROM (\n  SELECT DISTINCT ON (o.patient_id, COALESCE(o.loinc_code, o.display))\n    o.patient_id,\n    COALESCE(o.display, o.loinc_code) AS test_name,\n    o.value_num AS value,\n    o.value_unit AS unit,\n    o.effective_datetime\n  FROM observations o\n  WHERE o.patient_id = :patient_id\n  ORDER BY o.patient_id,\n           COALESCE(o.loinc_code, o.display),\n           o.effective_datetime DESC NULLS LAST\n) t\nORDER BY t.effective_datetime DESC NULLS LAST, t.test_name;",
+    "intent": "recent_lab_results",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "What are my newest test results?",
+    "sql": "SELECT *\nFROM (\n  SELECT DISTINCT ON (o.patient_id, COALESCE(o.loinc_code, o.display))\n    o.patient_id,\n    COALESCE(o.display, o.loinc_code) AS test_name,\n    o.value_num AS value,\n    o.value_unit AS unit,\n    o.effective_datetime\n  FROM observations o\n  WHERE o.patient_id = :patient_id\n  ORDER BY o.patient_id,\n           COALESCE(o.loinc_code, o.display),\n           o.effective_datetime DESC NULLS LAST\n) t\nORDER BY t.effective_datetime DESC NULLS LAST, t.test_name;",
+    "intent": "recent_lab_results",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "Give me my most recent lab values.",
+    "sql": "SELECT *\nFROM (\n  SELECT DISTINCT ON (o.patient_id, COALESCE(o.loinc_code, o.display))\n    o.patient_id,\n    COALESCE(o.display, o.loinc_code) AS test_name,\n    o.value_num AS value,\n    o.value_unit AS unit,\n    o.effective_datetime\n  FROM observations o\n  WHERE o.patient_id = :patient_id\n  ORDER BY o.patient_id,\n           COALESCE(o.loinc_code, o.display),\n           o.effective_datetime DESC NULLS LAST\n) t\nORDER BY t.effective_datetime DESC NULLS LAST, t.test_name;",
+    "intent": "recent_lab_results",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "What labs were recorded most recently?",
+    "sql": "SELECT *\nFROM (\n  SELECT DISTINCT ON (o.patient_id, COALESCE(o.loinc_code, o.display))\n    o.patient_id,\n    COALESCE(o.display, o.loinc_code) AS test_name,\n    o.value_num AS value,\n    o.value_unit AS unit,\n    o.effective_datetime\n  FROM observations o\n  WHERE o.patient_id = :patient_id\n  ORDER BY o.patient_id,\n           COALESCE(o.loinc_code, o.display),\n           o.effective_datetime DESC NULLS LAST\n) t\nORDER BY t.effective_datetime DESC NULLS LAST, t.test_name;",
+    "intent": "recent_lab_results",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "List my latest blood test results.",
+    "sql": "SELECT *\nFROM (\n  SELECT DISTINCT ON (o.patient_id, COALESCE(o.loinc_code, o.display))\n    o.patient_id,\n    COALESCE(o.display, o.loinc_code) AS test_name,\n    o.value_num AS value,\n    o.value_unit AS unit,\n    o.effective_datetime\n  FROM observations o\n  WHERE o.patient_id = :patient_id\n  ORDER BY o.patient_id,\n           COALESCE(o.loinc_code, o.display),\n           o.effective_datetime DESC NULLS LAST\n) t\nORDER BY t.effective_datetime DESC NULLS LAST, t.test_name;",
+    "intent": "recent_lab_results",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "Pull my recent laboratory results.",
+    "sql": "SELECT *\nFROM (\n  SELECT DISTINCT ON (o.patient_id, COALESCE(o.loinc_code, o.display))\n    o.patient_id,\n    COALESCE(o.display, o.loinc_code) AS test_name,\n    o.value_num AS value,\n    o.value_unit AS unit,\n    o.effective_datetime\n  FROM observations o\n  WHERE o.patient_id = :patient_id\n  ORDER BY o.patient_id,\n           COALESCE(o.loinc_code, o.display),\n           o.effective_datetime DESC NULLS LAST\n) t\nORDER BY t.effective_datetime DESC NULLS LAST, t.test_name;",
+    "intent": "recent_lab_results",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "What were the last lab tests added to my record?",
+    "sql": "SELECT *\nFROM (\n  SELECT DISTINCT ON (o.patient_id, COALESCE(o.loinc_code, o.display))\n    o.patient_id,\n    COALESCE(o.display, o.loinc_code) AS test_name,\n    o.value_num AS value,\n    o.value_unit AS unit,\n    o.effective_datetime\n  FROM observations o\n  WHERE o.patient_id = :patient_id\n  ORDER BY o.patient_id,\n           COALESCE(o.loinc_code, o.display),\n           o.effective_datetime DESC NULLS LAST\n) t\nORDER BY t.effective_datetime DESC NULLS LAST, t.test_name;",
+    "intent": "recent_lab_results",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "Can I see my recent lab results from my chart?",
+    "sql": "SELECT *\nFROM (\n  SELECT DISTINCT ON (o.patient_id, COALESCE(o.loinc_code, o.display))\n    o.patient_id,\n    COALESCE(o.display, o.loinc_code) AS test_name,\n    o.value_num AS value,\n    o.value_unit AS unit,\n    o.effective_datetime\n  FROM observations o\n  WHERE o.patient_id = :patient_id\n  ORDER BY o.patient_id,\n           COALESCE(o.loinc_code, o.display),\n           o.effective_datetime DESC NULLS LAST\n) t\nORDER BY t.effective_datetime DESC NULLS LAST, t.test_name;",
+    "intent": "recent_lab_results",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "Summarize my most recent lab results.",
+    "sql": "SELECT *\nFROM (\n  SELECT DISTINCT ON (o.patient_id, COALESCE(o.loinc_code, o.display))\n    o.patient_id,\n    COALESCE(o.display, o.loinc_code) AS test_name,\n    o.value_num AS value,\n    o.value_unit AS unit,\n    o.effective_datetime\n  FROM observations o\n  WHERE o.patient_id = :patient_id\n  ORDER BY o.patient_id,\n           COALESCE(o.loinc_code, o.display),\n           o.effective_datetime DESC NULLS LAST\n) t\nORDER BY t.effective_datetime DESC NULLS LAST, t.test_name;",
+    "intent": "recent_lab_results",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "Which medications am I currently taking?",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.dose,\n  mr.route,\n  mr.start_datetime,\n  mr.end_datetime,\n  mr.refills\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "current_medications",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "What prescriptions do I have right now?",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.dose,\n  mr.route,\n  mr.start_datetime,\n  mr.end_datetime,\n  mr.refills\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "current_medications",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "List my active medications.",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.dose,\n  mr.route,\n  mr.start_datetime,\n  mr.end_datetime,\n  mr.refills\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "current_medications",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "Show my current meds and dosages.",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.dose,\n  mr.route,\n  mr.start_datetime,\n  mr.end_datetime,\n  mr.refills\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "current_medications",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "What is on my current medication list?",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.dose,\n  mr.route,\n  mr.start_datetime,\n  mr.end_datetime,\n  mr.refills\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "current_medications",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "Which prescriptions are still active for me?",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.dose,\n  mr.route,\n  mr.start_datetime,\n  mr.end_datetime,\n  mr.refills\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "current_medications",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "Do I have any ongoing medications?",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.dose,\n  mr.route,\n  mr.start_datetime,\n  mr.end_datetime,\n  mr.refills\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "current_medications",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "Can you list the medicines I’m taking at present?",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.dose,\n  mr.route,\n  mr.start_datetime,\n  mr.end_datetime,\n  mr.refills\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "current_medications",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "What medications am I on today?",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.dose,\n  mr.route,\n  mr.start_datetime,\n  mr.end_datetime,\n  mr.refills\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "current_medications",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "Pull my current prescription medications.",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.dose,\n  mr.route,\n  mr.start_datetime,\n  mr.end_datetime,\n  mr.refills\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "current_medications",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "When was my last doctor’s visit?",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class        AS encounter_class,\n  e.reason_text  AS reason\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_history_last_visit",
+    "tables": [
+      "encounters"
+    ]
+  },
+  {
+    "question": "Show details of my most recent visit.",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class        AS encounter_class,\n  e.reason_text  AS reason\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_history_last_visit",
+    "tables": [
+      "encounters"
+    ]
+  },
+  {
+    "question": "What was the date of my last appointment?",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class        AS encounter_class,\n  e.reason_text  AS reason\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_history_last_visit",
+    "tables": [
+      "encounters"
+    ]
+  },
+  {
+    "question": "What happened during my most recent visit?",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class        AS encounter_class,\n  e.reason_text  AS reason\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_history_last_visit",
+    "tables": [
+      "encounters"
+    ]
+  },
+  {
+    "question": "Where was my last visit and why?",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class        AS encounter_class,\n  e.reason_text  AS reason\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_history_last_visit",
+    "tables": [
+      "encounters"
+    ]
+  },
+  {
+    "question": "Show my latest encounter summary.",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class        AS encounter_class,\n  e.reason_text  AS reason\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_history_last_visit",
+    "tables": [
+      "encounters"
+    ]
+  },
+  {
+    "question": "When did I last see a doctor?",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class        AS encounter_class,\n  e.reason_text  AS reason\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_history_last_visit",
+    "tables": [
+      "encounters"
+    ]
+  },
+  {
+    "question": "What was my most recent hospital or clinic visit?",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class        AS encounter_class,\n  e.reason_text  AS reason\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_history_last_visit",
+    "tables": [
+      "encounters"
+    ]
+  },
+  {
+    "question": "Provide the details of my most recent encounter.",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class        AS encounter_class,\n  e.reason_text  AS reason\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_history_last_visit",
+    "tables": [
+      "encounters"
+    ]
+  },
+  {
+    "question": "What was the reason for my last visit?",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class        AS encounter_class,\n  e.reason_text  AS reason\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_history_last_visit",
+    "tables": [
+      "encounters"
+    ]
+  },
+  {
+    "question": "Have I had any surgeries or procedures?",
+    "sql": "SELECT\n  p.patient_id,\n  COALESCE(p.display, p.code) AS procedure_name,\n  p.performed_datetime,\n  p.code,\n  p.display\nFROM procedures p\nWHERE p.patient_id = :patient_id\nORDER BY p.performed_datetime DESC NULLS LAST, procedure_name;",
+    "intent": "procedures_history",
+    "tables": [
+      "procedures"
+    ]
+  },
+  {
+    "question": "List my surgeries and procedures.",
+    "sql": "SELECT\n  p.patient_id,\n  COALESCE(p.display, p.code) AS procedure_name,\n  p.performed_datetime,\n  p.code,\n  p.display\nFROM procedures p\nWHERE p.patient_id = :patient_id\nORDER BY p.performed_datetime DESC NULLS LAST, procedure_name;",
+    "intent": "procedures_history",
+    "tables": [
+      "procedures"
+    ]
+  },
+  {
+    "question": "Show procedures I’ve had with dates.",
+    "sql": "SELECT\n  p.patient_id,\n  COALESCE(p.display, p.code) AS procedure_name,\n  p.performed_datetime,\n  p.code,\n  p.display\nFROM procedures p\nWHERE p.patient_id = :patient_id\nORDER BY p.performed_datetime DESC NULLS LAST, procedure_name;",
+    "intent": "procedures_history",
+    "tables": [
+      "procedures"
+    ]
+  },
+  {
+    "question": "What medical procedures have been performed on me?",
+    "sql": "SELECT\n  p.patient_id,\n  COALESCE(p.display, p.code) AS procedure_name,\n  p.performed_datetime,\n  p.code,\n  p.display\nFROM procedures p\nWHERE p.patient_id = :patient_id\nORDER BY p.performed_datetime DESC NULLS LAST, procedure_name;",
+    "intent": "procedures_history",
+    "tables": [
+      "procedures"
+    ]
+  },
+  {
+    "question": "What surgeries have I undergone?",
+    "sql": "SELECT\n  p.patient_id,\n  COALESCE(p.display, p.code) AS procedure_name,\n  p.performed_datetime,\n  p.code,\n  p.display\nFROM procedures p\nWHERE p.patient_id = :patient_id\nORDER BY p.performed_datetime DESC NULLS LAST, procedure_name;",
+    "intent": "procedures_history",
+    "tables": [
+      "procedures"
+    ]
+  },
+  {
+    "question": "Show my imaging and procedures history.",
+    "sql": "SELECT\n  p.patient_id,\n  COALESCE(p.display, p.code) AS procedure_name,\n  p.performed_datetime,\n  p.code,\n  p.display\nFROM procedures p\nWHERE p.patient_id = :patient_id\nORDER BY p.performed_datetime DESC NULLS LAST, procedure_name;",
+    "intent": "procedures_history",
+    "tables": [
+      "procedures"
+    ]
+  },
+  {
+    "question": "What was my last procedure?",
+    "sql": "SELECT\n  p.patient_id,\n  COALESCE(p.display, p.code) AS procedure_name,\n  p.performed_datetime,\n  p.code,\n  p.display\nFROM procedures p\nWHERE p.patient_id = :patient_id\nORDER BY p.performed_datetime DESC NULLS LAST, procedure_name;",
+    "intent": "procedures_history",
+    "tables": [
+      "procedures"
+    ]
+  },
+  {
+    "question": "Give me all procedures recorded in my chart.",
+    "sql": "SELECT\n  p.patient_id,\n  COALESCE(p.display, p.code) AS procedure_name,\n  p.performed_datetime,\n  p.code,\n  p.display\nFROM procedures p\nWHERE p.patient_id = :patient_id\nORDER BY p.performed_datetime DESC NULLS LAST, procedure_name;",
+    "intent": "procedures_history",
+    "tables": [
+      "procedures"
+    ]
+  },
+  {
+    "question": "Have I had any operations on file?",
+    "sql": "SELECT\n  p.patient_id,\n  COALESCE(p.display, p.code) AS procedure_name,\n  p.performed_datetime,\n  p.code,\n  p.display\nFROM procedures p\nWHERE p.patient_id = :patient_id\nORDER BY p.performed_datetime DESC NULLS LAST, procedure_name;",
+    "intent": "procedures_history",
+    "tables": [
+      "procedures"
+    ]
+  },
+  {
+    "question": "Summarize my procedures to date.",
+    "sql": "SELECT\n  p.patient_id,\n  COALESCE(p.display, p.code) AS procedure_name,\n  p.performed_datetime,\n  p.code,\n  p.display\nFROM procedures p\nWHERE p.patient_id = :patient_id\nORDER BY p.performed_datetime DESC NULLS LAST, procedure_name;",
+    "intent": "procedures_history",
+    "tables": [
+      "procedures"
+    ]
+  },
+  {
+    "question": "How has my blood pressure changed over time?",
+    "sql": "SELECT\n  o.patient_id,\n  o.effective_datetime,\n  MAX(CASE WHEN o.loinc_code = '8480-6' OR LOWER(o.display) = 'systolic blood pressure'  THEN o.value_num END) AS systolic,\n  MAX(CASE WHEN o.loinc_code = '8462-4' OR LOWER(o.display) = 'diastolic blood pressure' THEN o.value_num END) AS diastolic,\n  MAX(CASE WHEN o.loinc_code IN ('8480-6','8462-4') THEN o.value_unit END) AS unit\nFROM observations AS o\nWHERE o.patient_id = :patient_id\n  AND (\n    o.loinc_code IN ('8480-6','8462-4')\n    OR LOWER(o.display) IN ('systolic blood pressure','diastolic blood pressure')\n  )\nGROUP BY o.patient_id, o.effective_datetime\nHAVING MAX(CASE WHEN o.loinc_code IN ('8480-6','8462-4') THEN 1 ELSE 0 END) > 0\nORDER BY o.effective_datetime DESC NULLS LAST;",
+    "intent": "vital_sign_trends",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "Show my blood pressure trend.",
+    "sql": "SELECT\n  o.patient_id,\n  o.effective_datetime,\n  MAX(CASE WHEN o.loinc_code = '8480-6' OR LOWER(o.display) = 'systolic blood pressure'  THEN o.value_num END) AS systolic,\n  MAX(CASE WHEN o.loinc_code = '8462-4' OR LOWER(o.display) = 'diastolic blood pressure' THEN o.value_num END) AS diastolic,\n  MAX(CASE WHEN o.loinc_code IN ('8480-6','8462-4') THEN o.value_unit END) AS unit\nFROM observations AS o\nWHERE o.patient_id = :patient_id\n  AND (\n    o.loinc_code IN ('8480-6','8462-4')\n    OR LOWER(o.display) IN ('systolic blood pressure','diastolic blood pressure')\n  )\nGROUP BY o.patient_id, o.effective_datetime\nHAVING MAX(CASE WHEN o.loinc_code IN ('8480-6','8462-4') THEN 1 ELSE 0 END) > 0\nORDER BY o.effective_datetime DESC NULLS LAST;",
+    "intent": "vital_sign_trends",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "Display my heart rate trend over time.",
+    "sql": "SELECT\n  o.patient_id,\n  COALESCE(o.display, o.loinc_code) AS vital_name,\n  o.value_num  AS value,\n  o.value_unit AS unit,\n  o.effective_datetime\nFROM observations AS o\nWHERE o.patient_id = :patient_id\n  AND (\n    o.loinc_code IN ('8867-4')\n    OR LOWER(o.display) IN ('heart rate')\n  )\nORDER BY o.effective_datetime DESC NULLS LAST;",
+    "intent": "vital_sign_trends",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "Show my vital signs history.",
+    "sql": "SELECT\n  o.patient_id,\n  COALESCE(o.display, o.loinc_code) AS vital_name,\n  o.value_num  AS value,\n  o.value_unit AS unit,\n  o.effective_datetime\nFROM observations AS o\nWHERE o.patient_id = :patient_id\n  AND (\n    o.loinc_code IN ('8480-6','8462-4','8867-4','9279-1','8310-5','59408-5','29463-7','39156-5','8302-2')\n    OR LOWER(o.display) IN (\n      'systolic blood pressure','diastolic blood pressure',\n      'heart rate','respiratory rate','body temperature',\n      'oxygen saturation','body weight','bmi','body mass index','body height'\n    )\n  )\nORDER BY\n  o.effective_datetime DESC NULLS LAST,\n  COALESCE(o.display, o.loinc_code);",
+    "intent": "vital_sign_trends",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "What are my vital signs over time?",
+    "sql": "SELECT\n  o.patient_id,\n  COALESCE(o.display, o.loinc_code) AS vital_name,\n  o.value_num  AS value,\n  o.value_unit AS unit,\n  o.effective_datetime\nFROM observations AS o\nWHERE o.patient_id = :patient_id\n  AND (\n    o.loinc_code IN ('8480-6','8462-4','8867-4','9279-1','8310-5','59408-5','29463-7','39156-5','8302-2')\n    OR LOWER(o.display) IN (\n      'systolic blood pressure','diastolic blood pressure',\n      'heart rate','respiratory rate','body temperature',\n      'oxygen saturation','body weight','bmi','body mass index','body height'\n    )\n  )\nORDER BY\n  o.effective_datetime DESC NULLS LAST,\n  COALESCE(o.display, o.loinc_code);",
+    "intent": "vital_sign_trends",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "Show my weight trend.",
+    "sql": "SELECT\n  o.patient_id,\n  COALESCE(o.display, o.loinc_code) AS vital_name,\n  o.value_num  AS value,\n  o.value_unit AS unit,\n  o.effective_datetime\nFROM observations AS o\nWHERE o.patient_id = :patient_id\n  AND (\n    o.loinc_code IN ('29463-7')\n    OR LOWER(o.display) IN ('body weight', 'weight')\n  )\nORDER BY o.effective_datetime DESC NULLS LAST;",
+    "intent": "vital_sign_trends",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "Show my BMI trend.",
+    "sql": "SELECT\n  o.patient_id,\n  COALESCE(o.display, o.loinc_code) AS vital_name,\n  o.value_num  AS value,\n  o.value_unit AS unit,\n  o.effective_datetime\nFROM observations AS o\nWHERE o.patient_id = :patient_id\n  AND (\n    o.loinc_code IN ('39156-5')\n    OR LOWER(o.display) IN ('bmi', 'body mass index')\n  )\nORDER BY o.effective_datetime DESC NULLS LAST;",
+    "intent": "vital_sign_trends",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "Give me my blood pressure readings over time.",
+    "sql": "SELECT\n  o.patient_id,\n  o.effective_datetime,\n  MAX(CASE WHEN o.loinc_code = '8480-6' OR LOWER(o.display) = 'systolic blood pressure'  THEN o.value_num END) AS systolic,\n  MAX(CASE WHEN o.loinc_code = '8462-4' OR LOWER(o.display) = 'diastolic blood pressure' THEN o.value_num END) AS diastolic,\n  MAX(CASE WHEN o.loinc_code IN ('8480-6','8462-4') THEN o.value_unit END) AS unit\nFROM observations AS o\nWHERE o.patient_id = :patient_id\n  AND (\n    o.loinc_code IN ('8480-6','8462-4')\n    OR LOWER(o.display) IN ('systolic blood pressure','diastolic blood pressure')\n  )\nGROUP BY o.patient_id, o.effective_datetime\nHAVING MAX(CASE WHEN o.loinc_code IN ('8480-6','8462-4') THEN 1 ELSE 0 END) > 0\nORDER BY o.effective_datetime DESC NULLS LAST;",
+    "intent": "vital_sign_trends",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "List my weight and BMI history.",
+    "sql": "SELECT\n  o.patient_id,\n  COALESCE(o.display, o.loinc_code) AS vital_name,\n  o.value_num  AS value,\n  o.value_unit AS unit,\n  o.effective_datetime\nFROM observations AS o\nWHERE o.patient_id = :patient_id\n  AND (\n    o.loinc_code IN ('29463-7', '39156-5')\n    OR LOWER(o.display) IN ('body weight', 'bmi', 'body mass index')\n  )\nORDER BY o.effective_datetime DESC NULLS LAST, vital_name;",
+    "intent": "vital_sign_trends",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "Summarize my recent vital sign trends.",
+    "sql": "SELECT\n  o.patient_id,\n  COALESCE(o.display, o.loinc_code) AS vital_name,\n  o.value_num  AS value,\n  o.value_unit AS unit,\n  o.effective_datetime\nFROM observations AS o\nWHERE o.patient_id = :patient_id\n  AND (\n    o.loinc_code IN ('8480-6','8462-4','8867-4','9279-1','8310-5','59408-5','29463-7','39156-5','8302-2')\n    OR LOWER(o.display) IN (\n      'systolic blood pressure','diastolic blood pressure',\n      'heart rate','respiratory rate','body temperature',\n      'oxygen saturation','body weight','bmi','body mass index','body height'\n    )\n  )\nORDER BY\n  o.effective_datetime DESC NULLS LAST,\n  COALESCE(o.display, o.loinc_code);",
+    "intent": "vital_sign_trends",
+    "tables": [
+      "observations"
+    ]
+  },
+  {
+    "question": "Do I have any medication refills left?",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.refills,\n  mr.start_datetime,\n  mr.end_datetime\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND mr.refills IS NOT NULL\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "medication_refill_status",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "How many refills are available for my prescriptions?",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.refills,\n  mr.start_datetime,\n  mr.end_datetime\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND mr.refills IS NOT NULL\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "medication_refill_status",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "Which of my current meds still have refills?",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.refills,\n  mr.start_datetime,\n  mr.end_datetime\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND mr.refills IS NOT NULL\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "medication_refill_status",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "Show my prescriptions with refills and their end dates.",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.refills,\n  mr.start_datetime,\n  mr.end_datetime\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND mr.refills IS NOT NULL\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "medication_refill_status",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "When do my current prescriptions expire?",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.refills,\n  mr.start_datetime,\n  mr.end_datetime\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND mr.refills IS NOT NULL\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "medication_refill_status",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "List active medications with remaining refills.",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.refills,\n  mr.start_datetime,\n  mr.end_datetime\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND mr.refills IS NOT NULL\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "medication_refill_status",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "Which prescriptions are about to run out or expire?",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.refills,\n  mr.start_datetime,\n  mr.end_datetime\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND mr.refills IS NOT NULL\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "medication_refill_status",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "What are my refill counts for current medications?",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.refills,\n  mr.start_datetime,\n  mr.end_datetime\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND mr.refills IS NOT NULL\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "medication_refill_status",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "Can you show refills for the medicines I’m taking now?",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.refills,\n  mr.start_datetime,\n  mr.end_datetime\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND mr.refills IS NOT NULL\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "medication_refill_status",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "Do I need refills soon for any medication?",
+    "sql": "SELECT DISTINCT ON (mr.patient_id, mr.med_name)\n  mr.patient_id,\n  mr.med_name AS medication,\n  mr.refills,\n  mr.start_datetime,\n  mr.end_datetime\nFROM medication_requests mr\nWHERE mr.patient_id = :patient_id\n  AND mr.refills IS NOT NULL\n  AND (mr.end_datetime IS NULL OR mr.end_datetime >= NOW())\nORDER BY mr.patient_id,\n         mr.med_name,\n         COALESCE(mr.end_datetime, mr.start_datetime) DESC NULLS LAST;",
+    "intent": "medication_refill_status",
+    "tables": [
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "Summarize my most recent visit.",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class       AS encounter_class,\n  e.reason_text AS reason,\n  (\n    SELECT string_agg(DISTINCT COALESCE(c.display, c.code), '; ' ORDER BY COALESCE(c.display, c.code))\n    FROM conditions c\n    WHERE c.patient_id = e.patient_id AND c.encounter_id = e.encounter_id\n  ) AS conditions,\n  (\n    SELECT string_agg(DISTINCT COALESCE(p.display, p.code), '; ' ORDER BY COALESCE(p.display, p.code))\n    FROM procedures p\n    WHERE p.patient_id = e.patient_id AND p.encounter_id = e.encounter_id\n  ) AS procedures,\n  (\n    SELECT string_agg(DISTINCT mr.med_name, '; ' ORDER BY mr.med_name)\n    FROM medication_requests mr\n    WHERE mr.patient_id = e.patient_id AND mr.encounter_id = e.encounter_id\n  ) AS medications,\n  (\n    SELECT string_agg(DISTINCT COALESCE(o.display, o.loinc_code), '; ' ORDER BY COALESCE(o.display, o.loinc_code))\n    FROM observations o\n    WHERE o.patient_id = e.patient_id AND o.encounter_id = e.encounter_id\n  ) AS observations\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_summary_last_encounter",
+    "tables": [
+      "encounters",
+      "conditions",
+      "procedures",
+      "observations",
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "What happened during my last doctor’s visit?",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class       AS encounter_class,\n  e.reason_text AS reason,\n  (\n    SELECT string_agg(DISTINCT COALESCE(c.display, c.code), '; ' ORDER BY COALESCE(c.display, c.code))\n    FROM conditions c\n    WHERE c.patient_id = e.patient_id AND c.encounter_id = e.encounter_id\n  ) AS conditions,\n  (\n    SELECT string_agg(DISTINCT COALESCE(p.display, p.code), '; ' ORDER BY COALESCE(p.display, p.code))\n    FROM procedures p\n    WHERE p.patient_id = e.patient_id AND p.encounter_id = e.encounter_id\n  ) AS procedures,\n  (\n    SELECT string_agg(DISTINCT mr.med_name, '; ' ORDER BY mr.med_name)\n    FROM medication_requests mr\n    WHERE mr.patient_id = e.patient_id AND mr.encounter_id = e.encounter_id\n  ) AS medications,\n  (\n    SELECT string_agg(DISTINCT COALESCE(o.display, o.loinc_code), '; ' ORDER BY COALESCE(o.display, o.loinc_code))\n    FROM observations o\n    WHERE o.patient_id = e.patient_id AND o.encounter_id = e.encounter_id\n  ) AS observations\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_summary_last_encounter",
+    "tables": [
+      "encounters",
+      "conditions",
+      "procedures",
+      "observations",
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "Give me a summary of my most recent encounter.",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class       AS encounter_class,\n  e.reason_text AS reason,\n  (\n    SELECT string_agg(DISTINCT COALESCE(c.display, c.code), '; ' ORDER BY COALESCE(c.display, c.code))\n    FROM conditions c\n    WHERE c.patient_id = e.patient_id AND c.encounter_id = e.encounter_id\n  ) AS conditions,\n  (\n    SELECT string_agg(DISTINCT COALESCE(p.display, p.code), '; ' ORDER BY COALESCE(p.display, p.code))\n    FROM procedures p\n    WHERE p.patient_id = e.patient_id AND p.encounter_id = e.encounter_id\n  ) AS procedures,\n  (\n    SELECT string_agg(DISTINCT mr.med_name, '; ' ORDER BY mr.med_name)\n    FROM medication_requests mr\n    WHERE mr.patient_id = e.patient_id AND mr.encounter_id = e.encounter_id\n  ) AS medications,\n  (\n    SELECT string_agg(DISTINCT COALESCE(o.display, o.loinc_code), '; ' ORDER BY COALESCE(o.display, o.loinc_code))\n    FROM observations o\n    WHERE o.patient_id = e.patient_id AND o.encounter_id = e.encounter_id\n  ) AS observations\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_summary_last_encounter",
+    "tables": [
+      "encounters",
+      "conditions",
+      "procedures",
+      "observations",
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "What was done at my last appointment?",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class       AS encounter_class,\n  e.reason_text AS reason,\n  (\n    SELECT string_agg(DISTINCT COALESCE(c.display, c.code), '; ' ORDER BY COALESCE(c.display, c.code))\n    FROM conditions c\n    WHERE c.patient_id = e.patient_id AND c.encounter_id = e.encounter_id\n  ) AS conditions,\n  (\n    SELECT string_agg(DISTINCT COALESCE(p.display, p.code), '; ' ORDER BY COALESCE(p.display, p.code))\n    FROM procedures p\n    WHERE p.patient_id = e.patient_id AND p.encounter_id = e.encounter_id\n  ) AS procedures,\n  (\n    SELECT string_agg(DISTINCT mr.med_name, '; ' ORDER BY mr.med_name)\n    FROM medication_requests mr\n    WHERE mr.patient_id = e.patient_id AND mr.encounter_id = e.encounter_id\n  ) AS medications,\n  (\n    SELECT string_agg(DISTINCT COALESCE(o.display, o.loinc_code), '; ' ORDER BY COALESCE(o.display, o.loinc_code))\n    FROM observations o\n    WHERE o.patient_id = e.patient_id AND o.encounter_id = e.encounter_id\n  ) AS observations\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_summary_last_encounter",
+    "tables": [
+      "encounters",
+      "conditions",
+      "procedures",
+      "observations",
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "Show the details of my last hospital or clinic visit.",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class       AS encounter_class,\n  e.reason_text AS reason,\n  (\n    SELECT string_agg(DISTINCT COALESCE(c.display, c.code), '; ' ORDER BY COALESCE(c.display, c.code))\n    FROM conditions c\n    WHERE c.patient_id = e.patient_id AND c.encounter_id = e.encounter_id\n  ) AS conditions,\n  (\n    SELECT string_agg(DISTINCT COALESCE(p.display, p.code), '; ' ORDER BY COALESCE(p.display, p.code))\n    FROM procedures p\n    WHERE p.patient_id = e.patient_id AND p.encounter_id = e.encounter_id\n  ) AS procedures,\n  (\n    SELECT string_agg(DISTINCT mr.med_name, '; ' ORDER BY mr.med_name)\n    FROM medication_requests mr\n    WHERE mr.patient_id = e.patient_id AND mr.encounter_id = e.encounter_id\n  ) AS medications,\n  (\n    SELECT string_agg(DISTINCT COALESCE(o.display, o.loinc_code), '; ' ORDER BY COALESCE(o.display, o.loinc_code))\n    FROM observations o\n    WHERE o.patient_id = e.patient_id AND o.encounter_id = e.encounter_id\n  ) AS observations\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_summary_last_encounter",
+    "tables": [
+      "encounters",
+      "conditions",
+      "procedures",
+      "observations",
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "Provide a summary of diagnoses, procedures, meds, and tests from my last visit.",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class       AS encounter_class,\n  e.reason_text AS reason,\n  (\n    SELECT string_agg(DISTINCT COALESCE(c.display, c.code), '; ' ORDER BY COALESCE(c.display, c.code))\n    FROM conditions c\n    WHERE c.patient_id = e.patient_id AND c.encounter_id = e.encounter_id\n  ) AS conditions,\n  (\n    SELECT string_agg(DISTINCT COALESCE(p.display, p.code), '; ' ORDER BY COALESCE(p.display, p.code))\n    FROM procedures p\n    WHERE p.patient_id = e.patient_id AND p.encounter_id = e.encounter_id\n  ) AS procedures,\n  (\n    SELECT string_agg(DISTINCT mr.med_name, '; ' ORDER BY mr.med_name)\n    FROM medication_requests mr\n    WHERE mr.patient_id = e.patient_id AND mr.encounter_id = e.encounter_id\n  ) AS medications,\n  (\n    SELECT string_agg(DISTINCT COALESCE(o.display, o.loinc_code), '; ' ORDER BY COALESCE(o.display, o.loinc_code))\n    FROM observations o\n    WHERE o.patient_id = e.patient_id AND o.encounter_id = e.encounter_id\n  ) AS observations\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_summary_last_encounter",
+    "tables": [
+      "encounters",
+      "conditions",
+      "procedures",
+      "observations",
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "What was the reason and outcome of my most recent visit?",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class       AS encounter_class,\n  e.reason_text AS reason,\n  (\n    SELECT string_agg(DISTINCT COALESCE(c.display, c.code), '; ' ORDER BY COALESCE(c.display, c.code))\n    FROM conditions c\n    WHERE c.patient_id = e.patient_id AND c.encounter_id = e.encounter_id\n  ) AS conditions,\n  (\n    SELECT string_agg(DISTINCT COALESCE(p.display, p.code), '; ' ORDER BY COALESCE(p.display, p.code))\n    FROM procedures p\n    WHERE p.patient_id = e.patient_id AND p.encounter_id = e.encounter_id\n  ) AS procedures,\n  (\n    SELECT string_agg(DISTINCT mr.med_name, '; ' ORDER BY mr.med_name)\n    FROM medication_requests mr\n    WHERE mr.patient_id = e.patient_id AND mr.encounter_id = e.encounter_id\n  ) AS medications,\n  (\n    SELECT string_agg(DISTINCT COALESCE(o.display, o.loinc_code), '; ' ORDER BY COALESCE(o.display, o.loinc_code))\n    FROM observations o\n    WHERE o.patient_id = e.patient_id AND o.encounter_id = e.encounter_id\n  ) AS observations\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_summary_last_encounter",
+    "tables": [
+      "encounters",
+      "conditions",
+      "procedures",
+      "observations",
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "Summarize my last visit including procedures and labs.",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class       AS encounter_class,\n  e.reason_text AS reason,\n  (\n    SELECT string_agg(DISTINCT COALESCE(c.display, c.code), '; ' ORDER BY COALESCE(c.display, c.code))\n    FROM conditions c\n    WHERE c.patient_id = e.patient_id AND c.encounter_id = e.encounter_id\n  ) AS conditions,\n  (\n    SELECT string_agg(DISTINCT COALESCE(p.display, p.code), '; ' ORDER BY COALESCE(p.display, p.code))\n    FROM procedures p\n    WHERE p.patient_id = e.patient_id AND p.encounter_id = e.encounter_id\n  ) AS procedures,\n  (\n    SELECT string_agg(DISTINCT mr.med_name, '; ' ORDER BY mr.med_name)\n    FROM medication_requests mr\n    WHERE mr.patient_id = e.patient_id AND mr.encounter_id = e.encounter_id\n  ) AS medications,\n  (\n    SELECT string_agg(DISTINCT COALESCE(o.display, o.loinc_code), '; ' ORDER BY COALESCE(o.display, o.loinc_code))\n    FROM observations o\n    WHERE o.patient_id = e.patient_id AND o.encounter_id = e.encounter_id\n  ) AS observations\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_summary_last_encounter",
+    "tables": [
+      "encounters",
+      "conditions",
+      "procedures",
+      "observations",
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "What were the key items from my last encounter?",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class       AS encounter_class,\n  e.reason_text AS reason,\n  (\n    SELECT string_agg(DISTINCT COALESCE(c.display, c.code), '; ' ORDER BY COALESCE(c.display, c.code))\n    FROM conditions c\n    WHERE c.patient_id = e.patient_id AND c.encounter_id = e.encounter_id\n  ) AS conditions,\n  (\n    SELECT string_agg(DISTINCT COALESCE(p.display, p.code), '; ' ORDER BY COALESCE(p.display, p.code))\n    FROM procedures p\n    WHERE p.patient_id = e.patient_id AND p.encounter_id = e.encounter_id\n  ) AS procedures,\n  (\n    SELECT string_agg(DISTINCT mr.med_name, '; ' ORDER BY mr.med_name)\n    FROM medication_requests mr\n    WHERE mr.patient_id = e.patient_id AND mr.encounter_id = e.encounter_id\n  ) AS medications,\n  (\n    SELECT string_agg(DISTINCT COALESCE(o.display, o.loinc_code), '; ' ORDER BY COALESCE(o.display, o.loinc_code))\n    FROM observations o\n    WHERE o.patient_id = e.patient_id AND o.encounter_id = e.encounter_id\n  ) AS observations\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_summary_last_encounter",
+    "tables": [
+      "encounters",
+      "conditions",
+      "procedures",
+      "observations",
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "Give me a one-line summary of my most recent visit.",
+    "sql": "SELECT DISTINCT ON (e.patient_id)\n  e.patient_id,\n  e.start_datetime,\n  e.end_datetime,\n  e.class       AS encounter_class,\n  e.reason_text AS reason,\n  (\n    SELECT string_agg(DISTINCT COALESCE(c.display, c.code), '; ' ORDER BY COALESCE(c.display, c.code))\n    FROM conditions c\n    WHERE c.patient_id = e.patient_id AND c.encounter_id = e.encounter_id\n  ) AS conditions,\n  (\n    SELECT string_agg(DISTINCT COALESCE(p.display, p.code), '; ' ORDER BY COALESCE(p.display, p.code))\n    FROM procedures p\n    WHERE p.patient_id = e.patient_id AND p.encounter_id = e.encounter_id\n  ) AS procedures,\n  (\n    SELECT string_agg(DISTINCT mr.med_name, '; ' ORDER BY mr.med_name)\n    FROM medication_requests mr\n    WHERE mr.patient_id = e.patient_id AND mr.encounter_id = e.encounter_id\n  ) AS medications,\n  (\n    SELECT string_agg(DISTINCT COALESCE(o.display, o.loinc_code), '; ' ORDER BY COALESCE(o.display, o.loinc_code))\n    FROM observations o\n    WHERE o.patient_id = e.patient_id AND o.encounter_id = e.encounter_id\n  ) AS observations\nFROM encounters e\nWHERE e.patient_id = :patient_id\nORDER BY e.patient_id, e.start_datetime DESC NULLS LAST;",
+    "intent": "visit_summary_last_encounter",
+    "tables": [
+      "encounters",
+      "conditions",
+      "procedures",
+      "observations",
+      "medication_requests"
+    ]
+  },
+  {
+    "question": "What vaccines have I received?",
+    "sql": "SELECT DISTINCT ON (i.patient_id, i.display, i.date)\n  i.display AS vaccine_name,\n  i.date AS vaccination_date,\n  i.code AS vaccine_code\nFROM immunizations i\nWHERE i.patient_id = :patient_id\nORDER BY i.patient_id, i.display, i.date DESC NULLS LAST;",
+    "intent": "immunizations_summary",
+    "tables": [
+      "immunizations"
+    ]
+  },
+  {
+    "question": "What immunizations have I had?",
+    "sql": "SELECT DISTINCT ON (i.patient_id, i.display, i.date)\n  i.display AS immunization_name,\n  i.date AS immunization_date,\n  i.code\nFROM immunizations i\nWHERE i.patient_id = :patient_id\nORDER BY i.patient_id, i.display, i.date DESC NULLS LAST;",
+    "intent": "immunizations_summary",
+    "tables": [
+      "immunizations"
+    ]
+  },
+  {
+    "question": "Show me my vaccination history",
+    "sql": "SELECT DISTINCT ON (i.patient_id, i.display, i.date)\n  i.display AS vaccine_name,\n  i.date AS vaccination_date,\n  i.code AS vaccine_code,\n  i.base_cost\nFROM immunizations i\nWHERE i.patient_id = :patient_id\nORDER BY i.patient_id, i.display, i.date DESC NULLS LAST;",
+    "intent": "immunizations_history",
+    "tables": [
+      "immunizations"
+    ]
+  },
+  {
+    "question": "When was my last flu shot?",
+    "sql": "SELECT DISTINCT ON (i.patient_id, i.date)\n  i.display AS vaccine_name,\n  i.date AS vaccination_date,\n  i.code\nFROM immunizations i\nWHERE i.patient_id = :patient_id\n  AND i.display ILIKE '%influenza%'\nORDER BY i.patient_id, i.date DESC NULLS LAST\nLIMIT 1;",
+    "intent": "specific_vaccine_query",
+    "tables": [
+      "immunizations"
+    ]
+  },
+  {
+    "question": "What COVID vaccines have I received?",
+    "sql": "SELECT DISTINCT ON (i.patient_id, i.display, i.date)\n  i.display AS vaccine_name,\n  i.date AS vaccination_date,\n  i.code\nFROM immunizations i\nWHERE i.patient_id = :patient_id\n  AND i.display ILIKE '%covid%'\nORDER BY i.patient_id, i.display, i.date DESC NULLS LAST;",
+    "intent": "specific_vaccine_query",
+    "tables": [
+      "immunizations"
+    ]
+  },
+  {
+    "question": "List all my shots and when I got them",
+    "sql": "SELECT DISTINCT ON (i.patient_id, i.display, i.date)\n  i.display AS vaccine_name,\n  i.date AS vaccination_date,\n  i.code AS vaccine_code\nFROM immunizations i\nWHERE i.patient_id = :patient_id\nORDER BY i.patient_id, i.display, i.date DESC NULLS LAST;",
+    "intent": "immunizations_summary",
+    "tables": [
+      "immunizations"
+    ]
+  },
+  {
+    "question": "How many vaccines have I had this year?",
+    "sql": "SELECT \n  COUNT(*) AS vaccine_count,\n  EXTRACT(YEAR FROM i.date) AS year\nFROM immunizations i\nWHERE i.patient_id = :patient_id\n  AND EXTRACT(YEAR FROM i.date) = EXTRACT(YEAR FROM CURRENT_DATE)\nGROUP BY EXTRACT(YEAR FROM i.date);",
+    "intent": "immunizations_count",
+    "tables": [
+      "immunizations"
+    ]
+  },
+  {
+    "question": "What shots do I need to get?",
+    "sql": "SELECT DISTINCT ON (i.patient_id, i.display, i.date)\n  i.display AS recent_vaccine,\n  i.date AS last_received,\n  CASE \n    WHEN i.display ILIKE '%influenza%' AND i.date < (CURRENT_DATE - INTERVAL '1 year') THEN 'Annual flu shot may be due'\n    WHEN i.display ILIKE '%covid%' AND i.date < (CURRENT_DATE - INTERVAL '6 months') THEN 'COVID booster may be due'\n    ELSE 'Consult healthcare provider for recommendations'\n  END AS recommendation\nFROM immunizations i\nWHERE i.patient_id = :patient_id\nORDER BY i.patient_id, i.display, i.date DESC NULLS LAST;",
+    "intent": "immunizations_recommendations",
+    "tables": [
+      "immunizations"
+    ]
+  },
+  {
+    "question": "Show me my immunization record",
+    "sql": "SELECT DISTINCT ON (i.patient_id, i.display, i.date)\n  i.display AS vaccine_name,\n  i.date AS vaccination_date,\n  i.code AS vaccine_code,\n  i.encounter_id\nFROM immunizations i\nWHERE i.patient_id = :patient_id\nORDER BY i.patient_id, i.display, i.date DESC NULLS LAST;",
+    "intent": "immunizations_summary",
+    "tables": [
+      "immunizations"
+    ]
+  },
+  {
+    "question": "What vaccinations are on my medical record?",
+    "sql": "SELECT DISTINCT ON (i.patient_id, i.display, i.date)\n  i.display AS vaccination_name,\n  i.date AS date_administered,\n  i.code AS vaccine_code\nFROM immunizations i\nWHERE i.patient_id = :patient_id\nORDER BY i.patient_id, i.display, i.date DESC NULLS LAST;",
+    "intent": "immunizations_summary",
+    "tables": [
+      "immunizations"
+    ]
+  }
+]
