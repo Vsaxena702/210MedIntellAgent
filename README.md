@@ -461,14 +461,13 @@ result = process_patient_query(
 
 **UC Berkeley MIDS W210 Capstone - Fall 2024**
 
-- **Peter Htun** - Team Lead, Backend Architecture
-- **Vivek Saxena** - RAG Systems, LLM Integration  
-- **Maung Kyin** - Database Design, Knowledge Graphs
-- **[Team Member 4]** - Frontend, UI/UX
+- **Vishal Saxena** - Team Lead, Backend Architecture, RAG Systems, LLM Integration  
+- **Maung Kyin** - Database Design, Knowledge Graphs, Frontend, UI/UX
 
 **Advisors:**
 - Professor Joyce Shen - UC Berkeley MIDS
-- [Industry Advisor Name]
+- Professor Puya Vahabi - UC Berkeley MIDS
+- Professor Fred Nugen - UC Berkeley MIDS
 
 ---
 
